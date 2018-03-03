@@ -16,8 +16,8 @@
 	                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
 	                    alt="">
 	                    
-	                    @include('layouts.errors.error-message')
-	                    @include('layouts.errors.flash-error-message')
+	                    @include('layouts.messages.error-message')
+	                    @include('layouts.messages.flash-error-message')
 
 	                <form class="form-signin" action="{{ route('loginProcess') }}" method="post">
 	                	

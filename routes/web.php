@@ -37,8 +37,8 @@ Route::namespace('Admin')->group(function () {
      			'index', 'show','destroy'
      	]]);
 
-
-
+     	// region controller
+     	Route::resource('region', 'RegionController', ['except' => [ 'show' ]]);
 
 	});
 });
