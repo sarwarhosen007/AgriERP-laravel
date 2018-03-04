@@ -33,18 +33,13 @@
           </a>
 
         </li>
-        <li class="treeview">
-          <a href="#">
+        <li class="{{ Request::is('admin/crop') ? 'active' : '' }}">
+          <a href="{{ route('crop.index') }}">
+            
             <i class="fa fa-pie-chart"></i>
             <span>CROP</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Add Crop</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Show All Crop</a></li>
-          </ul>
         </li>
 
         <li class="{{ Request::is('admin/region') ? 'active' : '' }}">

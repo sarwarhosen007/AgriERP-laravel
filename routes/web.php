@@ -40,6 +40,9 @@ Route::namespace('Admin')->group(function () {
      	// region controller
      	Route::resource('region', 'RegionController', ['except' => [ 'show' ]]);
 
+     	// crop controller
+     	Route::resource('crop', 'CropController', ['except' => [ 'show' ]]);
+
 	});
 });
 
