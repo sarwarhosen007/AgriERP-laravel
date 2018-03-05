@@ -41,7 +41,10 @@ Route::namespace('Admin')->group(function () {
      	Route::resource('region', 'RegionController', ['except' => [ 'show' ]]);
 
      	// crop controller
-     	Route::resource('crop', 'CropController', ['except' => [ 'show' ]]);
+        Route::resource('crop', 'CropController', ['except' => [ 'show' ]]);
+
+        // fertilizer controller 
+     	Route::resource('fertilizer', 'FertilizerController', ['except' => [ 'show' ]]);
 
 	});
 });

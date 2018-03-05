@@ -49,6 +49,13 @@
           </a>
 
         </li>
+        <li class="{{ Request::is('admin/fertilizer') ? 'active' : '' }}">
+
+          <a href="{{ route('fertilizer.index') }}">
+            <i class="fa fa-users"></i> <span>FERTILIZER</span>
+          </a>
+
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
