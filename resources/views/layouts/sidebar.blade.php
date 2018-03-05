@@ -56,6 +56,13 @@
           </a>
 
         </li>
+        <li class="{{ Request::is('admin/insecticide') ? 'active' : '' }}">
+
+          <a href="{{ route('insecticide.index') }}">
+            <i class="fa fa-users"></i> <span>INSECTICIDE</span>
+          </a>
+
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

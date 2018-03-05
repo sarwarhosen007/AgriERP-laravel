@@ -44,7 +44,9 @@ Route::namespace('Admin')->group(function () {
         Route::resource('crop', 'CropController', ['except' => [ 'show' ]]);
 
         // fertilizer controller 
-     	Route::resource('fertilizer', 'FertilizerController', ['except' => [ 'show' ]]);
+        Route::resource('fertilizer', 'FertilizerController', ['except' => [ 'show' ]]);
+        // insecticide controller
+     	Route::resource('insecticide', 'InsecticideController', ['except' => [ 'show' ]]);
 
 	});
 });
