@@ -37,7 +37,7 @@
 			                  <td>{{ $crop->EstimatedProduction }}</td>
 			                  <td>{{ $crop->created_at->diffForHumans() }}</td>
 			                  <td>
-			                  	<a href="#" class="btn btn-primary btn-xs" role="button">Show All Weekly Tasks</a>
+			                  	<a href="{{ route('cropweeklytask.show',$crop->CropId) }}" class="btn btn-primary btn-xs" role="button">Show All Weekly Tasks</a>
 			                  	<a href="{{ route('crop.edit',$crop->CropId) }}" class="btn btn-info btn-xs" role="button">Edit</a>
 
 			                  	<form id="delete-form-{{ $crop->CropId }}" action="{{ route('crop.destroy',$crop->CropId) }}" style="display: none;" method="post">
@@ -78,6 +78,9 @@
 
 	          <!-- /.box -->
 	        </div>
+
+
+	        
 	     </div>
     </section>
 		

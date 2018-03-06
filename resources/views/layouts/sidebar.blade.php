@@ -59,7 +59,7 @@
         <li class="{{ Request::is('admin/insecticide') ? 'active' : '' }}">
 
           <a href="{{ route('insecticide.index') }}">
-            <i class="fa fa-users"></i> <span>INSECTICIDE</span>
+            <i class="fa fa-bug"></i> <span>INSECTICIDE</span>
           </a>
 
         </li>

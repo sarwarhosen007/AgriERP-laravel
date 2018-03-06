@@ -45,8 +45,12 @@ Route::namespace('Admin')->group(function () {
 
         // fertilizer controller 
         Route::resource('fertilizer', 'FertilizerController', ['except' => [ 'show' ]]);
+        
         // insecticide controller
-     	Route::resource('insecticide', 'InsecticideController', ['except' => [ 'show' ]]);
+        Route::resource('insecticide', 'InsecticideController', ['except' => [ 'show' ]]);
+
+        // cropweeklytask controller
+     	Route::resource('cropweeklytask', 'CropWeeklyTasksController', ['except' => [ 'index' ]]);
 
 	});
 });
