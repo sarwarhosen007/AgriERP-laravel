@@ -87,7 +87,13 @@ class CropWeeklyTasksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cropweeklytask = CropWeeklyTask::find($id);
+        $ferlizers = Fertilizer::all();
+        $insecticides = Insecticide::all();
+        return view('admin.cropweeklytask.cropweeklytask-edit')
+                    ->with('cropweeklytask',$cropweeklytask)
+                    ->with('ferlizers',$ferlizers)
+                    ->with('insecticides',$insecticides);
     }
 
     /**
@@ -99,7 +105,23 @@ class CropWeeklyTasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'FertilizerTask'=>'bail | required | min: 3',
+            'InsecticideTask'=>'bail | required | min: 3',
+            'OtherTask'=>'bail | required | min: 3',
+            ]);
+        $cropweeklytask = CropWeeklyTask::find($id);
+        $cropweeklytask->WeekNumber = $request->WeekNumber;
+        $cropweeklytask->CropId = $request->CropId;
+        $cropweeklytask->CropInsectSysId = $request->CropInsectSysId;
+        $cropweeklytask->CropFertSysId = $request->CropFertSysId;
+        $cropweeklytask->FertilizerTask = $request->FertilizerTask;
+        $cropweeklytask->InsecticideTask = $request->InsecticideTask;
+        $cropweeklytask->OtherTask = $request->OtherTask;
+
+        $cropweeklytask->save();
+        $request->session()->flash('successMessage', 'Data Insert Successfully');
+        return redirect()->route('cropweeklytask.show',$cropweeklytask->CropId);
     }
 
     /**
@@ -108,8 +130,13 @@ class CropWeeklyTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $cropId = $request->CropId;
+        $cropweeklytask = CropWeeklyTask::find($id);
+
+        $cropweeklytask->delete();
+        Session()->flash('successMessage', 'Data Delete Successfully');
+        return redirect()->route('cropweeklytask.show',$cropId);
     }
 }

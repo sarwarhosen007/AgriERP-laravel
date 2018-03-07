@@ -41,8 +41,22 @@
 				                  <td>{{ $cropweeklytask->OtherTask }}</td>
 				                  <td>{{ $cropweeklytask->created_at->diffForHumans() }}</td>
 				                  <td>
-				                  	<a href="#" class="btn btn-primary btn-xs" role="button">Edit</a>
-				                  	<a href="#" class="btn btn-info btn-xs" role="button">Delete</a> 
+				                  	<a href="{{ route('cropweeklytask.edit',$cropweeklytask->WeekId) }}" class="btn btn-primary btn-xs" role="button">Edit</a>
+
+				                  	<form id="delete-form-{{ $cropweeklytask->WeekId }}" action="{{ route('cropweeklytask.destroy',$cropweeklytask->WeekId) }}" style="display: none;" method="post">
+									 	{{ csrf_field() }}
+									 	{{ method_field('DELETE') }}
+									 	<input type="hidden" name="CropId" value="{{ $crop->CropId }}">
+								    </form>
+
+	                                <a href="#" class="btn btn-danger btn-xs" onclick="
+	                              	if(confirm('Are You sure Want to Delete?')){
+	                              		event.preventDefault();
+	                              		document.getElementById('delete-form-{{ $cropweeklytask->WeekId }}').submit();
+	                              	}else{
+	                              		event.preventDefault();
+	                              	}
+	                              ">Delete</a>
 				                  </td>
 				                </tr>
 				            @endforeach

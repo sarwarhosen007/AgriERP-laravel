@@ -113,7 +113,7 @@ class InsecticideController extends Controller
      */
     public function destroy($id)
     {
-         $insecticide = Insecticide::find($id);
+        $insecticide = Insecticide::find($id);
 
         $insecticide->delete();
         Session()->flash('successMessage', 'Data Delete Successfully');
