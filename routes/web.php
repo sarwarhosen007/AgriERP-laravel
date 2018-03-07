@@ -55,4 +55,14 @@ Route::namespace('Admin')->group(function () {
 	});
 });
 
+// All Farmer Route
+
+Route::namespace('Farmer')->group(function () {
+
+    Route::prefix('farmer')->group(function () {
+        Route::resource('farmerhome', 'FarmerHomeController', ['only' => [ 'index' ]]);
+
+    });
+});
+
  

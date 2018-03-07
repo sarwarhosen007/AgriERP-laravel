@@ -25,44 +25,45 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        
-        <li class="{{ Request::is('admin/farmer') ? 'active' : '' }}">
+        @if(Session()->get('role')=='admin')
+          <li class="{{ Request::is('admin/farmer') ? 'active' : '' }}">
 
-          <a href="{{ route('farmer.index') }}">
-            <i class="fa fa-users"></i> <span>SHOW ALL FARMERS</span>
-          </a>
+            <a href="{{ route('farmer.index') }}">
+              <i class="fa fa-users"></i> <span>SHOW ALL FARMERS</span>
+            </a>
 
-        </li>
-        <li class="{{ Request::is('admin/crop') ? 'active' : '' }}">
-          <a href="{{ route('crop.index') }}">
-            
-            <i class="fa fa-pie-chart"></i>
-            <span>CROP</span>
-            </span>
-          </a>
-        </li>
+          </li>
+          <li class="{{ Request::is('admin/crop') ? 'active' : '' }}">
+            <a href="{{ route('crop.index') }}">
+              
+              <i class="fa fa-pie-chart"></i>
+              <span>CROP</span>
+              </span>
+            </a>
+          </li>
 
-        <li class="{{ Request::is('admin/region') ? 'active' : '' }}">
+          <li class="{{ Request::is('admin/region') ? 'active' : '' }}">
 
-          <a href="{{ route('region.index') }}">
-            <i class="fa fa-users"></i> <span>REGION</span>
-          </a>
+            <a href="{{ route('region.index') }}">
+              <i class="fa fa-users"></i> <span>REGION</span>
+            </a>
 
-        </li>
-        <li class="{{ Request::is('admin/fertilizer') ? 'active' : '' }}">
+          </li>
+          <li class="{{ Request::is('admin/fertilizer') ? 'active' : '' }}">
 
-          <a href="{{ route('fertilizer.index') }}">
-            <i class="fa fa-users"></i> <span>FERTILIZER</span>
-          </a>
+            <a href="{{ route('fertilizer.index') }}">
+              <i class="fa fa-users"></i> <span>FERTILIZER</span>
+            </a>
 
-        </li>
-        <li class="{{ Request::is('admin/insecticide') ? 'active' : '' }}">
+          </li>
+          <li class="{{ Request::is('admin/insecticide') ? 'active' : '' }}">
 
-          <a href="{{ route('insecticide.index') }}">
-            <i class="fa fa-bug"></i> <span>INSECTICIDE</span>
-          </a>
+            <a href="{{ route('insecticide.index') }}">
+              <i class="fa fa-bug"></i> <span>INSECTICIDE</span>
+            </a>
 
-        </li>
+          </li>
+        @endif
       </ul>
     </section>
     <!-- /.sidebar -->

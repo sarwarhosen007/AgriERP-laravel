@@ -35,14 +35,22 @@ class LoginController extends Controller
 
  		if($user != null){
  			
- 			$request->session()->put('email', $email);
-
- 			return redirect()->route('adminHome');
+ 			if($user->role == 'admin'){
+ 			   $request->session()->put('email', $email);
+ 			   $request->session()->put('role', $user->role);
+			   return redirect()->route('adminHome');
+ 			}else{
+ 				$request->session()->put('email', $email);
+ 				$request->session()->put('role', $user->role);
+			    return redirect()->route('farmerhome.index');
+ 			}
+ 			 
 
  		}else{
  			$request->session()->flash('errorMessage', 'Please Insert Valid email and password');
  			return redirect()->route('adminLogin');
  		}
+
  	}
 
 
